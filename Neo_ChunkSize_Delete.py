@@ -8,7 +8,7 @@ end_skip = 500000
 limit = 10000
 
 def update_nodes_with_skip(tx, skip):
-    query = f"""match(n:node) where n.DataSource = "Echallan-SECURA" with n skip {skip} limit {limit} detach delete n"""
+    query = f"""match(n:node) where n.property = "ABC" with n skip {skip} limit {limit} detach delete n"""
     result = tx.run(query)
     # count = result.single()[0]
     print(f"Updated nodes with skip {skip}")
